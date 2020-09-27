@@ -1,30 +1,38 @@
-import WallService.posts
 import org.junit.Assert.*
 import org.junit.Test
 
 class WallServiceTest {
+
+    private val wallService = WallService()
+
     @Test
     fun add() {
-        val post = Posts(id = 0, title = "test", text = "test")
+        val post = Posts(id = 0, title = "test",subtitle = "subtitle",  text = "test")
 
-        val result = WallService.add(post)
+        val result = wallService.add(post)
 
         assertEquals(post, result)
     }
 
     @Test
-    fun update() {
-        add()
-        var updateResult:Boolean
-        val id = 0
-        if (id <= posts.size) {
-            updateResult = true
-            posts[id].title = "new title $id"
-            posts[id].text = "new text $id"
-        } else {
-            updateResult = false
-        }
+    fun update_true() {
+        val post = Posts(id = 0, title = "test", subtitle = "subtitle",text = "test")
+        val update = Posts(id = 0, title = "updated title",subtitle = "updated subtitle" , text = "updated test")
 
-        assertEquals(true, updateResult)
+        wallService.add(post)
+        val result = wallService.update(update)
+
+        assertTrue(result)
+    }
+
+    @Test
+    fun update_false() {
+        val post = Posts(id = 0, title = "test", subtitle = "subtitle", text = "test")
+        val update = Posts(id = 1, title = "updated title",subtitle = "subtitle" ,text = "updated test")
+
+        wallService.add(post)
+        val result = wallService.update(update)
+
+        assertFalse(result)
     }
 }

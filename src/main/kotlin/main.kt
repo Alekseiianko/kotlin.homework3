@@ -1,17 +1,20 @@
 fun main(){
+
+    val wallService = WallService()
+
     var id = 0
-    val post1 = Posts(id++, "title", "text")
-    val post2 = Posts(id++, "title2", "text2")
-    val post3 = Posts(id++, "title3", "text3")
-    val post4 = Posts(id++, "title4", "text4")
-    val post5 = Posts(id++, "title5", "text5")
+    val post1 = Posts(id++, "title", "subtitle","text")
+    val post2 = Posts(id++, "title2", "subtitle2","text2")
+    val post3 = Posts(id++, "title3", "subtitle3","text3")
+    val post4 = Posts(id++, "title4", "subtitle4","text4")
+    val post5 = Posts(id++, "title5", "subtitle5","text5")
 
-    WallService.add(post1)
-    WallService.add(post2)
-    WallService.add(post3)
-    WallService.add(post4)
-    WallService.add(post5)
+    wallService.add(post1)
+    wallService.add(post2)
+    wallService.add(post3)
+    wallService.add(post4)
+    wallService.add(post5)
 
-    WallService.update(post2)
+    wallService.update(post2)
 
 }

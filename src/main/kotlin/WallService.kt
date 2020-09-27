@@ -1,9 +1,6 @@
-import java.io.InputStream
-import java.util.*
+class WallService {
 
-object WallService {
-
-    var posts = emptyArray<Posts>()
+    private var posts = emptyArray<Posts>()
 
     fun add(post: Posts): Posts {
         posts += post
@@ -11,13 +8,14 @@ object WallService {
     }
 
     fun update(post: Posts): Boolean {
-        val id = 2
-        return if (id <= posts.size) {
-            posts[id].title = "new title $id"
-            posts[id].text = "new text $id"
-            true
-        }else {
-            false
+
+        val index = posts.indexOfFirst { it.id == post.id }
+
+        if (index < 0) {
+            return false
         }
+
+        posts[index] = post
+        return true
     }
 }
