@@ -1,16 +1,16 @@
-class Posts(
-    id: Int,
-    title: String,
-    subtitle: String,
-    text: String){
+data class Posts(
+    val id: Int,
+    val title: String,
+    val subtitle: String,
+    val text: String,
+    val likes: Int,
+    val post: Posts?){
 
-    var id = id
+    val isRepost: Boolean
+        get() = post != null
 
-    var title = title
-
-    var subtitle = subtitle
-
-    var text = text
+    val allLikes :Int
+        get() = likes + (post?.likes ?: 0)
 
 }
 
