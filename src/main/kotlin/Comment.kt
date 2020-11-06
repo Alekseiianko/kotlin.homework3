@@ -1,7 +1,7 @@
 import java.util.*
 
 data class Comment (
-    val text: String,
-    val date: Date
+    val postId: Int,
+    val text: String
 )
 

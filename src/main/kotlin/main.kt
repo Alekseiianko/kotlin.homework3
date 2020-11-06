@@ -27,4 +27,10 @@ fun main(){
 
     println(post5.allLikes)
 
+    val comment = Comment(1,"nice comment")
+    if(wallService.createComment(comment)){
+        println("lol")
+    }
+
+
 }

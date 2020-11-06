@@ -20,7 +20,14 @@ class WallService {
         return true
     }
 
-    fun createComment(comment: Comment) {
-        comments += comment
+    fun createComment(comment: Comment): Boolean {
+        val post = posts[comment.postId-1]
+        return if (comment.postId === post.id){
+            comments += comment
+            true;
+        } else {
+            false;
+        }
     }
+
 }
