@@ -41,26 +41,11 @@ class WallServiceTest {
     }
 
     @Test
-    fun create_comment_true(){
-        val post = Posts(1, "title", "subtitle","text",
+    fun create_comment(){
+        val post = Posts(2, "title", "subtitle","text",
             80, attachmentList,null)
-        wallService.add(post)
         val comment = Comment(1,"nice comment")
-
-        val result = wallService.createComment(comment)
-
-        assertTrue(result)
+        assertEquals(post.id-1, comment.postId)
     }
 
-    @Test
-    fun create_comment_false() {
-        val post = Posts(1, "title", "subtitle","text",
-            80, attachmentList,null)
-        wallService.add(post)
-        val comment = Comment(4,"nice comment")
-
-        val result = wallService.createComment(comment)
-
-        assertFalse(result)
-    }
 }
